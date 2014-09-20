@@ -1,0 +1,472 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blue"
+    android:orientation="horizontal"
+    tools:context=".MainActivity" >
+
+    <EditText
+        android:id="@+id/edit_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:hint="@string/def_value"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@+id/edit_message"
+        android:checkedButton="@+id/radio_f"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/radio_f"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/fahrenheit"
+            android:textColor="#FFFFFF" />
+
+        <RadioButton
+            android:id="@+id/radio_c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/celcius"
+            android:textColor="#FFFFFF" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:onClick="sendLoc"
+        android:text="@string/button_send" />
+
+    <TextView
+        android:id="@+id/CITY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/REGCOUN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CITY"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/IMGfair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/REGCOUN"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/fair"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/IMGcloudy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/REGCOUN"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/cloudy"
+        android:visibility="invisible" />
+
+        <TextView
+        android:id="@+id/IMGhaze"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/REGCOUN"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/haze"
+        android:visibility="invisible" />
+    
+<TextView
+        android:id="@+id/IMGclear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/REGCOUN"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/clear"
+        android:visibility="invisible" />
+
+<TextView
+        android:id="@+id/IMGpcloudy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/REGCOUN"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/partlycloudy"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/TEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:layout_below="@+id/IMGcloudy"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/FTEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBaseline="@+id/TEMP"
+        android:layout_alignBottom="@+id/TEMP"
+        android:layout_alignRight="@+id/TEXT"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/TEMP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TEXT"
+        android:layout_toLeftOf="@+id/FTEXT"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/FORECAST"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TEMP"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FFFFFF" />
+
+    <TableLayout
+        android:id="@+id/tableid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/FORECAST"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/DAYH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/headingrow"
+                android:padding="8dip"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/TEXTH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/headingrow"
+                android:padding="8dip"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/HIGHH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/headingrow"
+                android:padding="8dip"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/LOWH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/headingrow"
+                android:padding="8dip"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/DAY0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oddrow"
+                android:padding="8dip"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/TEXT0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oddrow"
+                android:padding="8dip"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/HIGH0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oddrow"
+                android:padding="8dip"
+                android:textColor="#FFA500"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/LOW0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oddrow"
+                android:padding="8dip"
+                android:textColor="#0000FF"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/DAY1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/evenrow"
+                android:padding="8dip"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/TEXT1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/evenrow"
+                android:padding="8dip"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/HIGH1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/evenrow"
+                android:padding="8dip"
+                android:textColor="#FFA500"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/LOW1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/evenrow"
+                android:padding="8dip"
+                android:textColor="#0000FF"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/DAY2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oddrow"
+                android:padding="8dip"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/TEXT2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oddrow"
+                android:padding="8dip"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/HIGH2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oddrow"
+                android:padding="8dip"
+                android:textColor="#FFA500"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/LOW2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oddrow"
+                android:padding="8dip"
+                android:textColor="#0000FF"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/DAY3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/evenrow"
+                android:padding="8dip"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/TEXT3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/evenrow"
+                android:padding="8dip"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/HIGH3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/evenrow"
+                android:padding="8dip"
+                android:textColor="#FFA500"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/LOW3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/evenrow"
+                android:padding="8dip"
+                android:textColor="#0000FF"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/DAY4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oddrow"
+                android:padding="8dip"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/TEXT4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oddrow"
+                android:padding="8dip"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/HIGH4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oddrow"
+                android:padding="8dip"
+                android:textColor="#FFA500"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/LOW4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oddrow"
+                android:padding="8dip"
+                android:textColor="#0000FF"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/CURRENT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_message"
+        android:layout_marginBottom="22dp"
+        android:clickable="true"
+        android:onClick="postCurentToFb"
+        android:padding="8dip"
+        android:text="@string/current"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/WFORECAST"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TEXT"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+        android:onClick="postForecastToFb"
+        android:padding="8dip"
+        android:text="@string/forecast"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+</RelativeLayout>

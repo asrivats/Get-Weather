@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AndroidFBPost</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="def_value">Zip or Location</string>
+    <string name="instructions">Login to create a link to fetch account data</string>
+    <string name="button_send">Search</string>
+    <string name="fahrenheit">°F</string>
+    <string name="celcius">°C</string>
+    <string name="login">Login</string>
+    <string name="logout">Log out</string>
+    <string name="title_activity_display_message">Location</string>
+    <string name="current">Share Current Weather</string>
+    <string name="forecast">Share weather forecast</string>
+    <string name="app_id">174905782705799</string>
+    <string name="LargeText">Los Angeles</string>
+    <string name="RegCoun">CA,United States</string>
+    <string name="weathercondition">weathercondition</string>
+    <string name="text">Fair</string>
+    <string name="temp">74</string>
+    <string name="Forecast">Forecast</string>
+    <string name="Day">Day</string>
+    <string name="Weather">Weather</string>
+    <string name="High">High</string>
+    <string name="Low">Low</string>
+
+</resources>
